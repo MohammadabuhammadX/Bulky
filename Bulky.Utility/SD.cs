@@ -8,6 +8,7 @@ namespace Bulky.Utility
 {
     public static class SD  // where we added a class static detail
     {
+        // test
         public const string Role_Customer = "Customer";
         public const string Role_Company = "Company";
         public const string Role_Admin ="Admin";
