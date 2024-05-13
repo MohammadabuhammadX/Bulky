@@ -16,12 +16,7 @@ namespace Bulky.DataAccess.Repository
         public CategoryRepository(ApplicationDbContext db) :base(db) //We want to pass this implementation to all base class,We wanr ro pass this implementation to all the base class . That way,whatever DbContext we get here we'll pass to the repository and the error goes away
         {
             _db = db;
-        }
-        public void save()
-        {
-            _db.SaveChanges();
-        }
-
+        }       
         public void Update(Category obj)
         {
             _db.Categories.Update(obj);

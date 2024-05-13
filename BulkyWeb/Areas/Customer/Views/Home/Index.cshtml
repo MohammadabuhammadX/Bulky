@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Product>
+
+<div class="row pd-3">
+    @foreach (var product in Model)    // we need to iterate through the IEnumerable
+    {
+        <div class="col-lg-3 col-sm-6">
+            <div class="row p-2">
+                <div class="col-12 p-1">
+                    <div class="card border-0 p-3 shadow border-top border-5 rounded">
+                        <img src="@product.ImageUrl" class="card-img-top rouned" />
+                        <div class="card-body pd-0">
+                            <div class="pd-1">
+                                <p class="card-title h5 text-dark opacity-75 text-uppercase text-center">@product.Title</p>
+                                <p class="card-title text-warning text-center">by<b>@product.Author</b></p>
+                            </div>
+                            <div class="pd-1">
+                                <p class="text-dark opacity-75 text-center mb-0">
+                                    List Price:
+                                    <span class="text-decoration-line-through">
+                                        @product.ListPrice.ToString("c")
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="pd-1">
+                                <p class="text-dark opacity-75 text-center">
+                                    As low as:
+                                    <span>
+                                        @product.Price100.ToString("c")
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <a asp-action="Details"
+                        asp-route-productId ="@product.Id"  
+                        class="btn btn-primary bg-gradient border-0 form-control">
+                            Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+@*we need to add redirect because we are in the same area and same controller, ican only write the action method  that call <a asp-action="Details"
+it'll by default use the same area and same controller , but on top of that ,when it it being calling that if we examine the controller we need to 
+pass the productId "asp-route-productId ="@product.Id"
+*@

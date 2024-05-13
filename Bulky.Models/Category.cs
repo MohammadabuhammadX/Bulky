@@ -9,6 +9,7 @@ namespace Bulky.Models
         // if the Name CategoryId it alse  it will automatically treat that partivaular property as the primary key
 
         //*/ 
+        [Key]
         public int Id { get; set; }    //Primary ket of the table
                                        //Default,If the name is purely ID, it will automatically or rather entity framework cor will automatically think this is the primary  key
         [Required] // once you add required to any of the property here when SQL script will be generated to create this particular table in datebase , You will see that string have a not null setting

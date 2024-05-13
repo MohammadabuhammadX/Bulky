@@ -7,13 +7,11 @@ using System.Threading.Tasks;
 
 namespace Bulky.DataAccess.Repository.IRepository
 {
-    public interface IRepository<T> where T :class       //--> When we working with generic, We don't know what class type will be
+    public interface IRepository<T> where T : class       //--> When we working with generic, We don't know what class type will be
     {
         // T- Category
-        //We need to think of is we need to retrieve all category where we are displaying all of them
-        IEnumerable<T> GetAll();
-        //T GetFirstOrDefault();
-        T Get(Expression<Func<T, bool>> filter);
+        IEnumerable<T> GetAll(string? includeProperties = null);       //We need to think of is we need to retrieve all category where we are displaying all of them
+        T Get(Expression<Func<T, bool>> filter, string? includeProperties = null);
         void Add(T entity);
         void Remove(T entity);
         void RemoveRange(IEnumerable<T> entity);  // --> When we work with a repository pattern , We don't like the update or add method directly inside the genetic repository
